@@ -1,5 +1,5 @@
 // Cell.tsx
-import React, { useRef } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { ColorSelector } from "../store/slices/ColorSlices";
 import useResize from "../hooks/useResize";
