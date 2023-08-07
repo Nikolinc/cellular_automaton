@@ -1,7 +1,8 @@
 // Cell.tsx
 import React, { useRef } from "react";
 import { useSelector } from "react-redux";
-import { couterSelector } from "../store/slices/counterSlices";
+import { ColorSelector } from "../store/slices/ColorSlices";
+import useResize from "../hooks/useResize";
 
 interface CellProps {
   alive: boolean;
@@ -9,10 +10,11 @@ interface CellProps {
 }
 
 const Cell: React.FC<CellProps> = ({ alive, onClick }) => {
-  const background = useSelector(couterSelector.getBackground);
-  const grid = useSelector(couterSelector.getGrid);
-  const cell = useSelector(couterSelector.getCell);
-  const tooltipRef = useRef<HTMLDivElement>(null);
+  const background = useSelector(ColorSelector.getBackground);
+  const grid = useSelector(ColorSelector.getGrid);
+  const cell = useSelector(ColorSelector.getCell);
+
+  const tooltipRef = useResize();
 
   return (
     <div
@@ -22,7 +24,7 @@ const Cell: React.FC<CellProps> = ({ alive, onClick }) => {
           ? { backgroundColor: cell, border: `1px solid ${grid}` }
           : { backgroundColor: background, border: `1px solid ${grid}` }
       }
-      className={`cell w-5 h-5 border  `}
+      className={`cell border`}
       onClick={() => {
         onClick();
       }}
