@@ -1,15 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Cell from "./Cell";
-
-const numRows = 30;
-const numCols = 40;
+import { SizeSelector } from "../store/slices/SizeSlices";
+import { useSelector } from "react-redux";
 
 const Grid: React.FC = () => {
+  const numRows = useSelector(SizeSelector.getRows);
+  const numCols = useSelector(SizeSelector.getCols);
+
+
   const [grid, setGrid] = useState<boolean[][]>(
     Array.from({ length: numRows }, () =>
       Array.from({ length: numCols }, () => false)
     )
   );
+
+  useEffect(() => {
+    setGrid(
+      Array.from({ length: numRows }, () =>
+        Array.from({ length: numCols }, () => false)
+      )
+    );
+  }, [numRows]);
 
   const toggleCell = (row: number, col: number) => {
     const newGrid = [...grid];
