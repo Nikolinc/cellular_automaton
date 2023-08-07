@@ -1,16 +1,16 @@
 import React from "react";
 import { useRef, useState } from "react";
 import { useSelector } from "react-redux";
+
+import PaletteModal from "./PaletteModal";
 import {
+  ColorSelector,
   changeBackground,
   changeCell,
   changeGrid,
-  couterSelector,
-} from "../store/slices/counterSlices";
-import PaletteModal from "./PaletteModal";
+} from "../store/slices/ColorSlices";
 
 function Colors() {
- 
   const [openedBackground, setOpenedBackground] = useState(false);
   const [openedGrid, setOpenedGrid] = useState(false);
   const [openedCell, setOpenedCell] = useState(false);
@@ -19,9 +19,9 @@ function Colors() {
   const GridRef = useRef<HTMLButtonElement>(null);
   const CellRef = useRef<HTMLButtonElement>(null);
 
-  const background = useSelector(couterSelector.getBackground);
-  const grid = useSelector(couterSelector.getGrid);
-  const cell = useSelector(couterSelector.getCell);
+  const background = useSelector(ColorSelector.getBackground);
+  const grid = useSelector(ColorSelector.getGrid);
+  const cell = useSelector(ColorSelector.getCell);
 
   const onClose = () => {
     setOpenedBackground(false);

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import "react-color-palette/css";
-import { ColorPicker, IColor, useColor } from "react-color-palette";
+import { ColorPicker, useColor } from "react-color-palette";
 import useModal from "../hooks/useModal";
 import React from "react";
 import { useDispatch } from "react-redux";
@@ -24,11 +24,9 @@ function PaletteModal({
   const tooltipRef = useRef<HTMLDivElement>(null);
   const [colorH, setColor] = useColor(color);
 
-  
   useEffect(() => {
     dispatch(changeColor(colorH.hex));
-  },[colorH]);
-
+  }, [colorH]);
 
   useModal({
     elementRef: tooltipRef,
