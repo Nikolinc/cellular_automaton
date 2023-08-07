@@ -28,7 +28,7 @@ function RangeSlider() {
     dispatch(changeRows(Math.round(row)));
     dispatch(changeWidth(Math.round(size)));
     dispatch(changeHeight(Math.round(size)));
-    
+
   }, [count]);
 
   return (
@@ -50,6 +50,3 @@ function RangeSlider() {
 }
 
 export default RangeSlider;
-function dispatch(arg0: { payload: any; type: "counter/changeCols" }) {
-  throw new Error("Function not implemented.");
-}
