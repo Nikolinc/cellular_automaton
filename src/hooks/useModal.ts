@@ -32,7 +32,6 @@ function useModal({
       }
 
       if (!ignoreElements.some((element) => element.contains(target))) {
-        console.log("outside click");
         handleOutsideClick(e);
       }
     };
