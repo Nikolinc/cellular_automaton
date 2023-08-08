@@ -1,7 +1,9 @@
 import React from "react";
 import Colors from "./component/Colors";
 import Grid from "./component/Grid";
-import RangeSlider from "./component/Range";
+import Play from "./component/ButtonPlay";
+import RangerSize from "./component/RangeSize";
+import RangerRandom from "./component/RangeDensity";
 
 function App() {
   return (
@@ -16,7 +18,9 @@ function App() {
           className="mt-10
         "
         >
-          <RangeSlider />
+          <Play />
+          <RangerRandom />
+          <RangerSize />
           <Colors />
         </div>
       </div>
