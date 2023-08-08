@@ -1,11 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
 import ColorSlices from "./slices/ColorSlices";
 import SizeSlice from "./slices/SizeSlices";
+import Play from "../component/ButtonPlay";
+import PlaySlices from "./slices/PlaySlices";
+import RandomSlices from "./slices/DensitySclice";
 
 const store = configureStore({
   reducer: {
     Color: ColorSlices.reducer,
     Size: SizeSlice.reducer,
+    Play: PlaySlices.reducer,
+    Density: RandomSlices.reducer,
   },
 });
 
