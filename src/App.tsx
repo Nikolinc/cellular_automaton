@@ -3,7 +3,8 @@ import Colors from "./component/Colors";
 import Grid from "./component/Grid";
 import Play from "./component/ButtonPlay";
 import RangerSize from "./component/RangeSize";
-import RangerRandom from "./component/RangeDensity";
+import RangerDensity from "./component/RangeDensity";
+;
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
         "
         >
           <Play />
-          <RangerRandom />
+          <RangerDensity />
           <RangerSize />
           <Colors />
         </div>
