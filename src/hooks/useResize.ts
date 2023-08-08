@@ -9,9 +9,6 @@ function useResize() {
   const Width = useSelector(SizeSelector.getWidth);
   const Height = useSelector(SizeSelector.getHeight);
 
-  console.log("numRows", Width);
-  console.log("numCols", Height);
-
   useEffect(() => {
     if (!ref.current) {
       return;
