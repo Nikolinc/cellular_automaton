@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES6",
+    "lib": ["es2016", "dom"],
     "module": "ESNext",
     "jsx": "react", // Убедитесь, что указан правильный режим JSX
     "strict": true,
