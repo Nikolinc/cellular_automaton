@@ -4,7 +4,7 @@ import Grid from "./component/Grid";
 import Play from "./component/ButtonPlay";
 import RangerSize from "./component/RangeSize";
 import RangerDensity from "./component/RangeDensity";
-;
+import InputRule from "./component/inputRule";
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
         "
         >
           <Play />
+          <InputRule/>
           <RangerDensity />
           <RangerSize />
           <Colors />
