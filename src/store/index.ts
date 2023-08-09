@@ -3,6 +3,7 @@ import ColorSlices from "./slices/ColorSlices";
 import SizeSlice from "./slices/SizeSlices";
 import PlaySlices from "./slices/PlaySlices";
 import RandomSlices from "./slices/DensitySclice";
+import RuleSlices from "./slices/RuleSclice";
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     Size: SizeSlice.reducer,
     Play: PlaySlices.reducer,
     Density: RandomSlices.reducer,
+    Rule: RuleSlices.reducer,
   },
 });
 
