@@ -4,8 +4,15 @@ import { SizeSelector } from "../store/slices/SizeSlices";
 import { useSelector } from "react-redux";
 import { PlaySelector } from "../store/slices/PlaySlices";
 import { DensitySelector } from "../store/slices/DensitySclice";
+import { RuleSelector } from "../store/slices/RuleSclice";
 
-const updateGrid = (grid: boolean[][], numRows: number, numCols: number) => {
+const updateGrid = (
+  grid: boolean[][],
+  numRows: number,
+  numCols: number,
+  Birth: number,
+  Survive: number[]
+) => {
   const newGrid = grid.map((row) => [...row]);
 
   for (let row = 0; row < numRows; row++) {
@@ -14,11 +21,11 @@ const updateGrid = (grid: boolean[][], numRows: number, numCols: number) => {
       const neighbors = countAliveNeighbors(grid, row, col, numRows, numCols);
 
       if (cell) {
-        if (neighbors < 2 || neighbors > 3) {
+        if (!Survive.includes(neighbors)) {
           newGrid[row][col] = false;
         }
       } else {
-        if (neighbors === 3) {
+        if (neighbors === Birth) {
           newGrid[row][col] = true;
         }
       }
@@ -78,10 +85,15 @@ const createEmptyGrid = (row: number, col: number) => {
 const Grid: React.FC = () => {
   const numRows = useSelector(SizeSelector.getRows);
   const numCols = useSelector(SizeSelector.getCols);
+
   const density = useSelector(DensitySelector.getDensity);
 
   const play = useSelector(PlaySelector.getPlay);
   const stope = useSelector(PlaySelector.getStop);
+
+  const Birth = useSelector(RuleSelector.getBirth);
+  const Survive = useSelector(RuleSelector.getSurvive);
+
   const [firstStart, setfirstStart] = useState<boolean>(false);
 
   const [grid, setGrid] = useState<boolean[][]>(
@@ -102,7 +114,9 @@ const Grid: React.FC = () => {
   useEffect(() => {
     if (play) {
       const intervalId = setInterval(() => {
-        setGrid((prevGrid) => updateGrid(prevGrid, numRows, numCols));
+        setGrid((prevGrid) =>
+          updateGrid(prevGrid, numRows, numCols, Birth, Survive)
+        );
       }, 200);
 
       return () => {
