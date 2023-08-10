@@ -30,57 +30,80 @@ function Colors() {
   };
 
   return (
-    <div className="text-lg grid grid-cols-1 h-48">
-      <div className="text-emerald-500 text-[34px] text-left font-bold mb-3">
-        COLOR
-      </div>
-      <div className="Background">
-        <button
-          className="w-[232px] h-[34px] bg-neutral-700 rounded-[10px] shadow  hover:border-b-2  border-emerald-500"
-          onClick={() => setOpenedBackground((v) => !v)}
-        >
-          Background
-        </button>
-        <PaletteModal
-          opened={openedBackground}
-          triggerRef={BackgroundRef}
-          onClose={onClose}
-          color={background}
-          changeColor={changeBackground}
-        />
-      </div>
+    <details className="group [&_summary::-webkit-details-marker]:hidden">
+      <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 bg-[#343434]  text-[#01CC8F] hover:bg-[#01CC8F] hover:text-[#343434]">
+        <span className="text-xl font-medium "> COLOR </span>
 
-      <div className="Grid">
-        <button
-          className="w-[232px] h-[34px] bg-neutral-700 rounded-[10px] shadow  hover:border-b-2  border-emerald-500"
-          onClick={() => setOpenedGrid((v) => !v)}
-        >
-          Grid
-        </button>
-        <PaletteModal
-          opened={openedGrid}
-          triggerRef={GridRef}
-          onClose={onClose}
-          color={grid}
-          changeColor={changeGrid}
-        />
-      </div>
-      <div className="Cell">
-        <button
-          className="w-[232px] h-[34px] bg-neutral-700 rounded-[10px] shadow  hover:border-b-2  border-emerald-500"
-          onClick={() => setOpenedCell((v) => !v)}
-        >
-          Cell
-        </button>
-        <PaletteModal
-          opened={openedCell}
-          triggerRef={CellRef}
-          onClose={onClose}
-          color={cell}
-          changeColor={changeCell}
-        />
-      </div>
-    </div>
+        <span className="shrink-0 transition duration-300 group-open:-rotate-180">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </span>
+      </summary>
+
+      <ul className="mt-0 space-y-1 px-4  text-sm">
+        <li>
+          <div className="Background">
+            <button
+              className="w-3/4 h-[34px] bg-neutral-700 rounded-[10px] shadow  hover:border-b-2  border-emerald-500"
+              onClick={() => setOpenedBackground((v) => !v)}
+            >
+              Background
+            </button>
+            <PaletteModal
+              opened={openedBackground}
+              triggerRef={BackgroundRef}
+              onClose={onClose}
+              color={background}
+              changeColor={changeBackground}
+            />
+          </div>
+        </li>
+        <li>
+          <div className="Grid">
+            <button
+              className="w-3/4 h-[34px] bg-neutral-700 rounded-[10px] shadow  hover:border-b-2  border-emerald-500"
+              onClick={() => setOpenedGrid((v) => !v)}
+            >
+              Grid
+            </button>
+            <PaletteModal
+              opened={openedGrid}
+              triggerRef={GridRef}
+              onClose={onClose}
+              color={grid}
+              changeColor={changeGrid}
+            />
+          </div>
+        </li>
+        <li>
+          <div className="Cell">
+            <button
+              className="w-3/4 h-[34px] bg-neutral-700 rounded-[10px] shadow  hover:border-b-2  border-emerald-500"
+              onClick={() => setOpenedCell((v) => !v)}
+            >
+              Cell
+            </button>
+            <PaletteModal
+              opened={openedCell}
+              triggerRef={CellRef}
+              onClose={onClose}
+              color={cell}
+              changeColor={changeCell}
+            />
+          </div>
+        </li>
+      </ul>
+    </details>
   );
 }
 
