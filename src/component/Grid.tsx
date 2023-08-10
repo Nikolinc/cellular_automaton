@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { PlaySelector } from "../store/slices/PlaySlices";
 import { DensitySelector } from "../store/slices/DensitySclice";
 import { RuleSelector } from "../store/slices/RuleSclice";
+import { SpeedSelector } from "../store/slices/SpeedSlices";
 
 const updateGrid = (
   grid: boolean[][],
@@ -94,6 +95,8 @@ const Grid: React.FC = () => {
   const Birth = useSelector(RuleSelector.getBirth);
   const Survive = useSelector(RuleSelector.getSurvive);
 
+  const speed = useSelector(SpeedSelector.getSpeed);
+
   const [firstStart, setfirstStart] = useState<boolean>(false);
 
   const [grid, setGrid] = useState<boolean[][]>(
@@ -117,7 +120,7 @@ const Grid: React.FC = () => {
         setGrid((prevGrid) =>
           updateGrid(prevGrid, numRows, numCols, Birth, Survive)
         );
-      }, 200);
+      }, speed);
 
       return () => {
         clearInterval(intervalId);
