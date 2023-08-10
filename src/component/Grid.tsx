@@ -115,7 +115,7 @@ const Grid: React.FC = () => {
   }, [play]);
 
   useEffect(() => {
-    let intervalId: NodeJS.Timeout | null = null;
+    let intervalId: ReturnType<typeof setTimeout> | null = null;
 
     if (play) {
       intervalId = setInterval(() => {
