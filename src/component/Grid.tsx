@@ -115,18 +115,22 @@ const Grid: React.FC = () => {
   }, [play]);
 
   useEffect(() => {
+    let intervalId: NodeJS.Timeout | null = null;
+
     if (play) {
-      const intervalId = setInterval(() => {
+      intervalId = setInterval(() => {
         setGrid((prevGrid) =>
           updateGrid(prevGrid, numRows, numCols, Birth, Survive)
         );
       }, speed);
-
-      return () => {
-        clearInterval(intervalId);
-      };
     }
-  }, [play, updateGrid]);
+
+    return () => {
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+    };
+  }, [play, updateGrid, Birth, Survive, speed]);
 
   useEffect(() => {
     if (stope) {
