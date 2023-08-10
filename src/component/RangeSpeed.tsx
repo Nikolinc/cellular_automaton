@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { changeSpeed } from "../store/slices/SpeedSlices";
 
-function SpeedDensity() {
+function RangerSpeed() {
   const [count, setCount] = useState(200);
   const dispatch = useDispatch();
 
@@ -48,4 +48,4 @@ function SpeedDensity() {
   );
 }
 
-export default SpeedDensity;
+export default RangerSpeed;

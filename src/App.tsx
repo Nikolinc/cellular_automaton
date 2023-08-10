@@ -5,7 +5,7 @@ import Play from "./component/ButtonPlay";
 import RangerSize from "./component/RangeSize";
 import RangerDensity from "./component/RangeDensity";
 import InputRule from "./component/InputRule";
-import SpeedDensity from "./component/RangeSpeed";
+import RangerSpeed from "./component/RangeSpeed";
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
         >
           <Play />
           <InputRule />
-          <SpeedDensity />
+          <RangerSpeed />
           <RangerDensity />
           <RangerSize />
           <Colors />
