@@ -4,6 +4,7 @@ import SizeSlice from "./slices/SizeSlices";
 import PlaySlices from "./slices/PlaySlices";
 import RandomSlices from "./slices/DensitySclice";
 import RuleSlices from "./slices/RuleSclice";
+import SpeedSlices from "./slices/SpeedSlices";
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     Play: PlaySlices.reducer,
     Density: RandomSlices.reducer,
     Rule: RuleSlices.reducer,
+    Speed: SpeedSlices.reducer,
   },
 });
 
