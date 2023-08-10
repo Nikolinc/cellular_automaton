@@ -4,7 +4,8 @@ import Grid from "./component/Grid";
 import Play from "./component/ButtonPlay";
 import RangerSize from "./component/RangeSize";
 import RangerDensity from "./component/RangeDensity";
-import InputRule from "./component/inputRule";
+import InputRule from "./component/InputRule";
+import SpeedDensity from "./component/RangeSpeed";
 
 function App() {
   return (
@@ -16,11 +17,12 @@ function App() {
         </div>
 
         <div
-          className="mt-10
+          className="mt-10 w-[350px]
         "
         >
           <Play />
-          <InputRule/>
+          <InputRule />
+          <SpeedDensity />
           <RangerDensity />
           <RangerSize />
           <Colors />
