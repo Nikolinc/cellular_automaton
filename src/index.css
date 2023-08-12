@@ -61,3 +61,7 @@ body {
   width: var(--width);
   height: var(--height);
 }
+
+button:hover svg{
+  fill:#343434
+}
